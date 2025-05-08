@@ -55,6 +55,8 @@ Connected it to a GitHub repo.
 
 Resolved SSH/HTTPS issues and successfully pushed code to GitHub.
 
+
+<!-- ### What's Still Left To Do ### -->
 🔜 What’s Still Left To Do
 Scaffold Category Resource
 
