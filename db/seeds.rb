@@ -7,3 +7,8 @@
 #   ["Action", "Comedy", "Drama", "Horror"].each do |genre_name|
 #     MovieGenre.find_or_create_by!(name: genre_name)
 #   end
+# db/seeds.rb
+Category.create(name: "Shirts")
+Category.create(name: "Shoes")
+Brand.create(name: "Nike")
+Brand.create(name: "Adidas")

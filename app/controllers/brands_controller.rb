@@ -60,11 +60,11 @@ class BrandsController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_brand
-      @brand = Brand.find(params.expect(:id))
+      @brand = Brand.find(params[:id])
     end
 
     # Only allow a list of trusted parameters through.
     def brand_params
-      params.expect(brand: [ :name, :description ])
+      params.require(:brand).permit(:name, :description)
     end
 end

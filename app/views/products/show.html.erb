@@ -1,10 +1,32 @@
 <p style="color: green"><%= notice %></p>
 
-<%= render @product %>
+<article class="product-details">
+  <header>
+    <h1><%= @product.name %></h1>
+  </header>
 
-<div>
-  <%= link_to "Edit this product", edit_product_path(@product) %> |
-  <%= link_to "Back to products", products_path %>
+  <section class="product-info">
+    <dl>
+      <div class="info-row">
+        <dt>Price:</dt>
+        <dd><%= number_to_currency(@product.price) %></dd>
+      </div>
 
-  <%= button_to "Destroy this product", @product, method: :delete %>
-</div>
+      <div class="info-row">
+        <dt>Brand:</dt>
+        <dd><%= @product.brand&.name || "No brand assigned" %></dd>
+      </div>
+
+      <div class="info-row">
+        <dt>Category:</dt>
+        <dd><%= @product.category&.name || "No category assigned" %></dd>
+      </div>
+    </dl>
+  </section>
+
+  <nav class="product-actions">
+    <%= link_to "Edit", edit_product_path(@product), class: "button" %> |
+    <%= link_to "Back to Products", products_path, class: "button" %>
+  </nav>
+</article>
+
