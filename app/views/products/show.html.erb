@@ -1,27 +1,32 @@
 <p style="color: green"><%= notice %></p>
 
-<%= render @product %>
+<article class="product-details">
+  <header>
+    <h1><%= @product.name %></h1>
+  </header>
 
-<p>
-  <strong>Name:</strong>
-  <%= @product.name %>
-</p>
+  <section class="product-info">
+    <dl>
+      <div class="info-row">
+        <dt>Price:</dt>
+        <dd><%= number_to_currency(@product.price) %></dd>
+      </div>
 
-<p>
-  <strong>Price:</strong>
-  <%= number_to_currency(@product.price) %>
-</p>
+      <div class="info-row">
+        <dt>Brand:</dt>
+        <dd><%= @product.brand&.name || "No brand assigned" %></dd>
+      </div>
 
-<p>
-  <strong>Brand:</strong>
-  <%= @product.brand&.name || "No brand assigned" %>
-</p>
+      <div class="info-row">
+        <dt>Category:</dt>
+        <dd><%= @product.category&.name || "No category assigned" %></dd>
+      </div>
+    </dl>
+  </section>
 
-<p>
-  <strong>Category:</strong>
-  <%= @product.category&.name || "No category assigned" %>
-</p>
-
-<%= link_to "Edit", edit_product_path(@product) %> |
-<%= link_to "Back", products_path %>
+  <nav class="product-actions">
+    <%= link_to "Edit", edit_product_path(@product), class: "button" %> |
+    <%= link_to "Back to Products", products_path, class: "button" %>
+  </nav>
+</article>
 
