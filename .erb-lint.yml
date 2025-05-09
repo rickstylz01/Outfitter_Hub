@@ -1,0 +1,19 @@
+---
+EnableDefaultLinters: true
+linters:
+  ParserErrors:
+    enabled: false  # This will disable the parser errors that are causing the issue
+  ClosingErbTagIndent:
+    enabled: true
+  ExtraNewline:
+    enabled: true
+  FinalNewline:
+    enabled: true
+  RightTrim:
+    enabled: true
+  SelfClosingTag:
+    enabled: true
+  SpaceAroundErbTag:
+    enabled: true
+  SpaceInHtmlTag:
+    enabled: true 

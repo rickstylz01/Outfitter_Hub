@@ -1,12 +1,16 @@
 <% content_for :title, "Editing product" %>
 
-<h1>Editing product</h1>
+<article class="product-edit">
+  <header>
+    <h1>Edit Product</h1>
+  </header>
 
-<%= render "form", product: @product %>
+  <section class="edit-form">
+    <%= render "form", product: @product %>
+  </section>
 
-<br>
-
-<div>
-  <%= link_to "Show this product", @product %> |
-  <%= link_to "Back to products", products_path %>
-</div>
+  <nav class="product-actions">
+    <%= link_to "Show", @product, class: "button" %> |
+    <%= link_to "Back to Products", products_path, class: "button" %>
+  </nav>
+</article>
