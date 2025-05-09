@@ -1,4 +1,7 @@
-<p style="color: green"><%= notice %></p>
+<%# rubocop:disable Lint/Syntax %>
+<% if notice %>
+  <div class="flash-notice"><%= notice %></div>
+<% end %>
 
 <% content_for :title, "Products" %>
 
@@ -22,9 +25,9 @@
         <td><%= number_to_currency(product.price) %></td>
         <td><%= product.brand&.name || "N/A" %></td>
         <td><%= product.category&.name || "N/A" %></td>
-        <td><%= link_to 'Show', product %></td>
-        <td><%= link_to 'Edit', edit_product_path(product) %></td>
-        <td><%= link_to 'Destroy', product, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= button_to 'Show', product %></td>
+        <td><%= button_to 'Edit', edit_product_path(product) %></td>
+        <td><%= button_to 'Delete', product, method: :delete, class: 'button', form: { data: { turbo_confirm: 'Are you sure?' } } %></td>
       </tr>
     <% end %>
   </tbody>

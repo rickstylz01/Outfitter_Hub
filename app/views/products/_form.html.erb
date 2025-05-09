@@ -1,6 +1,6 @@
-<%= form_with(model: @product) do |form| %>
+<%= form_with(model: @product, class: "needs-validation") do |form| %>
   <% if product.errors.any? %>
-    <div style="color: red">
+    <div class="alert alert-danger">
       <h2><%= pluralize(product.errors.count, "error") %> prohibited this product from being saved:</h2>
 
       <ul>
@@ -11,27 +11,27 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= form.label :category_id %>
-    <%= form.collection_select :category_id, Category.all, :id, :name, prompt: "Select a Category" %>
+  <div class="mb-3">
+    <%= form.label :category_id, class: "form-label" %>
+    <%= form.collection_select :category_id, Category.all, :id, :name, { prompt: "Select a Category" }, class: "form-select" %>
   </div>
 
-  <div>
-    <%= form.label :name, style: "display: block" %>
-    <%= form.text_field :name %>
+  <div class="mb-3">
+    <%= form.label :name, class: "form-label" %>
+    <%= form.text_field :name, class: "form-control" %>
   </div>
 
-  <div>
-    <%= form.label :price, style: "display: block" %>
-    <%= form.text_field :price %>
+  <div class="mb-3">
+    <%= form.label :price, class: "form-label" %>
+    <%= form.text_field :price, class: "form-control" %>
   </div>
 
-  <div>
-    <%= form.label :brand_id, style: "display: block" %>
-    <%= form.collection_select :brand_id, Brand.all, :id, :name, prompt: "Select a Brand" %>
+  <div class="mb-3">
+    <%= form.label :brand_id, class: "form-label" %>
+    <%= form.collection_select :brand_id, Brand.all, :id, :name, { prompt: "Select a Brand" }, class: "form-select" %>
   </div>
 
-  <div>
-    <%= form.submit %>
+  <div class="mb-3">
+    <%= form.submit class: "btn btn-primary" %>
   </div>
 <% end %>
